@@ -1,0 +1,317 @@
+/* variables pour light mode */
+:root {
+    /* variables pour le mode clair */
+    --bg: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    /*variable pour mettre  un couleur */
+    --card: rgba(255, 255, 255, 0.7);
+    --text: #222;
+    --accent: #ff4d6d;
+    --soft: rgba(0, 0, 0, 0.1);
+}
+
+/* variables pour dark mode */
+body.dark {
+    --bg: linear-gradient(180deg, #1a0f2e, #3b1f4f, #ff4d6d);
+    --card: rgba(255, 255, 255, 0.08);
+    --text: #fff;
+    --soft: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+    /* utilisation de la variable pour le fond */
+    color: var(--text);
+    transition: 0.3s;
+}
+
+/* conteneur principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* application de todo */
+.todo-app {
+    width: 450px;
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    /* effet de flou pour le fond de la carte */
+    background: var(--card);
+    /* couleur de fond de la carte */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    /* pour organiser les elts de la carte */
+    flex-direction: column;
+    /* espacement entre les elts de la carte */
+    gap: 20px;
+    /* espacement entre les elts de la carte */
+    transition: 0.3s;
+}
+
+.todo-app:hover {
+    box-shadow: 0 0 30px rgba(255, 77, 109, 0.3),
+        0 0 60px rgba(255, 77, 109, 0.2);
+}
+
+.header {
+    /* entete de l app*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#theme-toggle {
+    /* bouton de changement de theme */
+    border: none;
+    background: var(--accent);
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#theme-toggle:hover {
+    box-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d;
+    transform: rotate(15deg) scale(1.1);
+    /* rotation et agrandissement au hover */
+}
+
+.input-area {
+    /* zone de saisie et bouton d ajout */
+    display: flex;
+    gap: 10px;
+}
+
+.input-area input {
+    /* champ de saisie de la tache */
+    flex: 1;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: var(--soft);
+    /* couleur de fond du champ de saisie */
+    color: var(--text);
+    outline: none;
+}
+
+.input-area button {
+    /* bouton dajout de tache */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-area button:hover {
+    /* effet au hover du bouton dajout */
+    transform: scale(1.15);
+    box-shadow: 0 0 12px #ff4d6d, 0 0 25px #ff4d6d;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+}
+
+.filters button {
+    /* style pour les boutons de filtre */
+    flex: 1;
+    /* pour que les boutons prennent toute la largeur disponible */
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    background: var(--soft);
+    color: var(--text);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filters .active {
+    /* style pour le bouton de filtre actif */
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 12px #ff4d6d, 0 0 25px #ff4d6d;
+}
+
+#task-list {
+    list-style: none;
+}
+
+#task-list li {
+    /* style pour les taches */
+    padding: 12px;
+    border-radius: 15px;
+    background: var(--soft);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+#task-list li:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(255, 77, 109, 0.6), 0 0 25px rgba(255, 77, 109, 0.4);
+}
+
+.completed span {
+    /* style pour les taches completees */
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.task-buttons {
+    /* conteneur pour les boutons de modification et suppression */
+    margin-left: auto;
+    /* pour pousser les boutons a droite */
+    display: flex;
+    gap: 5px;
+}
+
+.task-buttons button {
+    /* style pour les boutons de modification et suppression */
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit {
+    /* style pour le bouton de modification */
+    background: orange;
+    color: white;
+}
+
+.delete {
+    /* style pour le bouton de suppression */
+    background: crimson;
+    color: white;
+}
+
+.counter {
+    /* conteneur pour le compteur de taches restantes et le bouton de suppression des taches completes */
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 8px;
+    background: var(--soft);
+    border-radius: 12px;
+}
+
+.completed-animation {
+    /* classe pour l'animation de suppression des taches completes */
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+
+    /* animation pour faire "pop" les taches lors de leur suppression */
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.progress-container {
+    /* conteneur pour la barre de progression et le texte de progression */
+    width: 450px;
+    padding: 15px 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    /* effet de flou pour le fond de la carte */
+    background: var(--card);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.progress-container:hover {
+    box-shadow: 0 0 30px rgba(255, 77, 109, 0.3), 0 0 60px rgba(255, 77, 109, 0.2);
+}
+
+.progress-bar {
+    /* style pour la barre de progression */
+    width: 100%;
+    height: 12px;
+    background: var(--soft);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    /* pour cacher le debordement de la barre  */
+}
+
+.progress-fill {
+    /* style pour le remplissage de la barre de progression */
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff4d6d, #ffc8dd);
+    border-radius: 10px;
+    transition: width 0.4s ease-in-out;
+}
+
+#progress-text {
+    /* style pour le texte de progression */
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+
+    .todo-app,
+    .progress-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .counter {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .todo-app,
+    .progress-container {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
