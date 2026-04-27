@@ -36,6 +36,9 @@ La page inclut également un système de filtrage, une barre de progression pour
 
  Lien vers la page GitHub Pages (rendu final):
 
+https://github.com/islemsoufi-prog/Soufi_Islem_TODO_List-
+
+lien vers le page web:
 https://islemsoufi-prog.github.io/Soufi_Islem_TODO_List-/
 
 ---
